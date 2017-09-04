@@ -20,13 +20,13 @@ Maven tile for the docker-run-maven-plugin (to start/stop containers as part of 
 - Add the tile to pom.xml build / plugins
 
 
-### Add docker-run.properties
+### 1. Add docker-run.properties
 
 Add docker-run.properties to src/test/resources
 
-This defines the configuration for which containers to start and stop as part of the build.
+This defines the configuration for which containers to start and stop as part of the build. We can start DB's like Postgres but could also manage containers for ElasticSearch, Redis etc. 
 
-### Add tile to pom.xml
+### 2. Add tile to pom.xml
 
 ```xml
 <plugin>
