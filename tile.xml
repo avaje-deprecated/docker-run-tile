@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+
+  <properties>
+    <docker-run-plugin.version>0.9.3</docker-run-plugin.version>
+  </properties>
+
+  <build>
+    <plugins>
+
+		<plugin>
+			<groupId>org.avaje.docker</groupId>
+			<artifactId>docker-run-maven-plugin</artifactId>
+			<version>${docker-run-plugin.version}</version>
+			<executions>
+				<execution>
+					<id>start</id>
+					<phase>process-test-classes</phase>
+					<goals>
+						<goal>start</goal>
+					</goals>
+				</execution>
+				<execution>
+					<id>stop</id>
+					<phase>prepare-package</phase>
+					<goals>
+						<goal>stop</goal>
+					</goals>
+				</execution>
+			</executions>
+		</plugin>
+
+    </plugins>
+
+  </build>
+
+</project>
