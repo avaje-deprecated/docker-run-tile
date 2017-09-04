@@ -15,19 +15,24 @@ Maven tile for the docker-run-maven-plugin (to start/stop containers as part of 
 - Note we generally DO stop and remove containers on `mvn clean package` or `mvn clean install` (usual for build agent use)
 
 
-## Add docker-run.properties
+## How to use
+- Add a docker-run.properties file to src/test/resources
+- Add the tile to pom.xml build / plugins
+
+
+### Add docker-run.properties
 
 Add docker-run.properties to src/test/resources
 
 This defines the configuration for which containers to start and stop as part of the build.
 
-## Add tile to pom.xml
+### Add tile to pom.xml
 
 ```xml
 <plugin>
 	<groupId>io.repaint.maven</groupId>
 	<artifactId>tiles-maven-plugin</artifactId>
-	<version>2.8</version>
+	<version>2.10</version>
 	<extensions>true</extensions>
 	<configuration>
 		<filtering>false</filtering>
@@ -40,14 +45,16 @@ This defines the configuration for which containers to start and stop as part of
 ```
 
 
-## Example docker-run.properties
+### Example docker-run.properties
 
 ```properties
+
+# start postgres container (defaults to port 6432)
 dbPlatform=postgres
-dbName=unit_features
-dbUser=unit_features
-dbPassword=unit_features
+
+dbName=unit_db_foo
+dbUser=unit_db_user
+dbPassword=unit_db_password
 dbExtensions=hstore,pgcrypto
-#dbStartMode=dropCreate
 
 ```
