@@ -29,16 +29,16 @@ This defines the configuration for which containers to start and stop as part of
 
 ```xml
 <plugin>
-	<groupId>io.repaint.maven</groupId>
-	<artifactId>tiles-maven-plugin</artifactId>
-	<version>2.10</version>
-	<extensions>true</extensions>
-	<configuration>
-		<filtering>false</filtering>
-		<tiles>
-			<tile>org.avaje.tile:docker-run:0.1</tile>
-		</tiles>
-	</configuration>
+  <groupId>io.repaint.maven</groupId>
+  <artifactId>tiles-maven-plugin</artifactId>
+  <version>2.10</version>
+  <extensions>true</extensions>
+  <configuration>
+    <filtering>false</filtering>
+    <tiles>
+      <tile>org.avaje.tile:docker-run:0.1</tile>
+    </tiles>
+  </configuration>
 </plugin>
 
 ```
