@@ -1,14 +1,14 @@
 # docker-run-tile
 Maven tile for the docker-run-maven-plugin (to start/stop containers as part of maven build lifecycle)
 
-## Start containers
+## Start and setup of containers (before tests run)
 
 - Start containers prior to tests running (on the `process-test-classes` phase)
 - Start containers like Postgres, ElasticSearch, Redis at this point
 - For DB containers it can drop and create user, database and extensions 
 
 
-## Stop containers
+## Stop containers (after tests run)
 
 - Stop containers when tests have completed on the `prepare-package` phase
 - Note we generally do not stop the containers running `mvn clean test` (frequent developer use)
