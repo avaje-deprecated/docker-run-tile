@@ -60,3 +60,34 @@ dbPassword=unit_db_password
 dbExtensions=hstore,pgcrypto
 
 ```
+
+### Logs during build
+
+With `mvn clean package` we can see some logs before and after the tests run showing the containers starting and stopping.
+
+
+Before running tests:
+
+```console
+[INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ fsnz-feature-toggle-service ---
+[INFO] Compiling 3 source files to /home/rob/work/work-clearpoint/fsnz/fsnz-feature-toggle-service/target/test-classes
+[INFO] 
+[INFO] --- docker-run-maven-plugin:0.9.3:start (org.avaje.tile:docker-run:0.1-SNAPSHOT::start) @ fsnz-feature-toggle-service ---
+[INFO] starting postgres container:ut_postgres port:6432db:unit_features user:unit_features extensions:hstore,pgcrypto startMode:create
+
+...
+
+```
+After running tests:
+
+```console
+Results :
+
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- docker-run-maven-plugin:0.9.3:stop (org.avaje.tile:docker-run:0.1-SNAPSHOT::stop) @ fsnz-feature-toggle-service ---
+[INFO] stopping postgres container:ut_postgres stopMode:remove
+...
+```
+
