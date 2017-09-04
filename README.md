@@ -1,14 +1,16 @@
 # docker-run-tile
 Maven tile for the docker-run-maven-plugin (to start/stop containers as part of maven build lifecycle)
 
-## Start and setup of containers (before tests run)
+## WHAT IT DOES
 
-- Start containers prior to tests running (on the `process-test-classes` phase)
-- Start containers like Postgres, ElasticSearch, Redis at this point
-- For DB containers it can drop and create user, database and extensions 
+#### Starts containers (before tests run)
+
+- Starts containers prior to tests running on the `process-test-classes` phase
+- Starts containers like Postgres, MySql, ElasticSearch, Redis 
+- For DB containers it can drop and create user, database and extensions etc
 
 
-## Stop containers (after tests run)
+#### Stop containers (after tests run)
 
 - Stop containers when tests have completed on the `prepare-package` phase
 - Note we generally do not stop the containers running `mvn clean test` (frequent developer use)
@@ -16,17 +18,14 @@ Maven tile for the docker-run-maven-plugin (to start/stop containers as part of 
 
 
 ## How to use
-- Add a docker-run.properties file to src/test/resources
-- Add the tile to pom.xml build / plugins
 
-
-### 1. Add docker-run.properties
+#### 1. Add docker-run.properties
 
 Add docker-run.properties to src/test/resources
 
 This defines the configuration for which containers to start and stop as part of the build. We can start DB's like Postgres but could also manage containers for ElasticSearch, Redis etc. 
 
-### 2. Add tile to pom.xml
+#### 2. Add tile to pom.xml
 
 ```xml
 <plugin>
@@ -52,9 +51,12 @@ This defines the configuration for which containers to start and stop as part of
 # start postgres container (defaults to port 6432)
 dbPlatform=postgres
 
+# define db name, user etc 
 dbName=unit_db_foo
 dbUser=unit_db_user
 dbPassword=unit_db_password
+
+# for Postgres we can install extensions
 dbExtensions=hstore,pgcrypto
 
 ```
