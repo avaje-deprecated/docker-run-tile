@@ -4,7 +4,7 @@
 
   <groupId>org.avaje.tile</groupId>
   <artifactId>docker-run</artifactId>
-  <version>0.2-SNAPSHOT</version>
+  <version>1.1-SNAPSHOT</version>
   <packaging>tile</packaging>
 
   <parent>

@@ -2,7 +2,7 @@
 <project>
 
   <properties>
-    <docker-run-plugin.version>0.9.3</docker-run-plugin.version>
+    <docker-run-plugin.version>1.2.1</docker-run-plugin.version>
   </properties>
 
   <build>
@@ -20,13 +20,13 @@
 						<goal>start</goal>
 					</goals>
 				</execution>
-				<execution>
-					<id>stop</id>
-					<phase>prepare-package</phase>
-					<goals>
-						<goal>stop</goal>
-					</goals>
-				</execution>
+				<!--<execution>-->
+					<!--<id>stop</id>-->
+					<!--<phase>prepare-package</phase>-->
+					<!--<goals>-->
+						<!--<goal>stop</goal>-->
+					<!--</goals>-->
+				<!--</execution>-->
 			</executions>
 		</plugin>
 
